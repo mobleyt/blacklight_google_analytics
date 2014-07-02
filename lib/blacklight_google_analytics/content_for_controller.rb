@@ -6,7 +6,7 @@ module BlacklightGoogleAnalytics
         before_filter :google_analytics_filter
         
         def google_analytics_filter
-          content_for :head, render(:partial => 'layouts/google_analytics')
+          content_for :head, render_to_string(:partial => '/layouts/google_analytics')
         end
       
       end
