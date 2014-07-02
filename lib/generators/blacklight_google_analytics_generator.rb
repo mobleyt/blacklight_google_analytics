@@ -33,9 +33,9 @@ EOF
   def add_google_analytics_javascript_via_controller_extra_head
     catalog_controller_file = 'app/controllers/catalog_controller.rb'
     catalog_controller = File.binread catalog_controller_file
-    insert_line = "\n  include BlacklightGoogleAnalytics::ControllerExtraHead\n"
+    insert_line = "\n  include BlacklightGoogleAnalytics::ContentForController\n"
     if catalog_controller.include?(insert_line)
-      say_status("skipped", "add google analytics javascript via controller extra head", :yellow)
+      say_status("skipped", "add google analytics javascript via content_for in controller gem", :yellow)
     else
       insert_into_file catalog_controller_file, insert_line, 
         :after => 'class CatalogController < ApplicationController'
